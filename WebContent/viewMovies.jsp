@@ -35,7 +35,9 @@
 				final String sortType = request.getParameter("sort");
 				
 				if (sortType != null) {
-					
+					 %>
+					 <p>Did I miss something? Help me out and add it <a href="populate-database.jsp">here</a>.</p>
+					 <%
 					switch (sortType) {
 					
 						case Sort.DIRECTOR:
@@ -65,7 +67,6 @@
 				
 			
 				for (final Movie movie : movies) {
-					
 					%>
 					
 					<div id="lined">
@@ -77,8 +78,8 @@
 					<%
 				}
 				
-			} catch (final Exception waffle) {
-				waffle.printStackTrace();
+			} catch (final Exception noFace) {
+				noFace.printStackTrace();
 				%>
 				<div id="lined">
 					<h1>Error</h1>
