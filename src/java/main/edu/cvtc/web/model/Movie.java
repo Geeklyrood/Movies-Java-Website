@@ -7,11 +7,11 @@ public class Movie {
 	private Integer length;
 	private String imdb;
 	
-	public Movie(final String movieTitle, final String director, final int length, final String imdb) {
+	public Movie(final String movieTitle, final String director, final int length, String imbd) {
 		this.movieTitle = movieTitle;
 		this.director = director;
 		this.length = length;
-		this.imdb = imdb;
+		this.imdb = imbd;
 	}
 
 	public String getMovieTitle() {
@@ -34,5 +34,6 @@ public class Movie {
 	public String toString() {
 		return "Movie [movie=" + movieTitle + ", director=" + director + ", length=" + length  + "]";
 	}
+
 	
 }

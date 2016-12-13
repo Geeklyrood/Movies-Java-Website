@@ -23,7 +23,7 @@ import edu.cvtc.web.model.Movie;
  */
 public class WorkbookUtility {
 
-	public static List<Movie> retrievePeopleFromWorkbook(final File inputFile) throws InvalidFormatException, IOException {
+	public static List<Movie> retrieveMoviesFromWorkbook(final File inputFile) throws InvalidFormatException, IOException {
 		
 		final List<Movie> movies = new ArrayList<>();
 

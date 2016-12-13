@@ -18,4 +18,7 @@ public interface MovieDao {
 	
 	
 	List<Movie> retrieveMovies() throws MovieDatabaseException;
+
+
+	Integer insertMovie(Movie movie) throws MovieDatabaseException;
 }
