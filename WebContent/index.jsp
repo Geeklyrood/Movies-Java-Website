@@ -15,6 +15,7 @@
 			<div id="boxed">
 				<p>This website is devoted to Studio Ghibli and its many movies. Here you can sort through them based on a variety of stipulations, access the 
 				IMDB page for the movie and much more to come. Click on a sort stipulation in order to start!</p>
+				<p>Click <a href="populate-database.jsp">here</a> to re-populate the database.</p>
 			</div>
 	</div>
 			<%@ include file="/includes/footer.jsp" %>

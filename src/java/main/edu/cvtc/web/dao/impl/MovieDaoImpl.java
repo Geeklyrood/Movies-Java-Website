@@ -24,8 +24,8 @@ import edu.cvtc.web.util.WorkbookUtility;
 public class MovieDaoImpl implements MovieDao {
 
 	private static final String DROP_TABLE_MOVIE = "drop table if exists movie;";
-	private static final String CREATE_TABLE_MOVIE = "create table movie(id integer primary key auto increment,"
-			+ "movieTitle text, director text, length integer, imdb text);";
+	private static final String CREATE_TABLE_MOVIE = "create table movie (id integer primary key autoincrement,"
+			+ " director text, length integer, movieTitle text, imdb text);";
 	private static final String SELECT_ALL_FROM_MOVIE = "select * from movie;";
 	
 	@Override
@@ -42,17 +42,16 @@ public class MovieDaoImpl implements MovieDao {
 			final File inputFile = new File(filePath);
 			final List<Movie> people = WorkbookUtility.retrieveMoviesFromWorkbook(inputFile);
 			
-			for (final Movie Movie : people) {
-				String insertValues = "insert into Movie (director, legnth, movieTitle) values ('"
-									+ Movie.getDirector() + "', '" + Movie.getLength() + "', " + Movie.getMovieTitle()
-									+ "', " + Movie.getIMDB() + "')";
+			for (final Movie movie : people) {
+				String insertValues = "insert into movie (director, length, movieTitle, imdb) values ('"
+									+ movie.getDirector() + "', " + movie.getLength() + ", \"" + movie.getMovieTitle()
+									+ "\", \"" + movie.getIMDB() + "\");";
 				
 				System.out.println(insertValues);
 				
 				statement.executeUpdate(insertValues);
 			}
 			
-			statement.executeUpdate(SELECT_ALL_FROM_MOVIE);
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}

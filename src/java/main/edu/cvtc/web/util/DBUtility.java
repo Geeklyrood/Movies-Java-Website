@@ -14,7 +14,7 @@ import java.sql.Statement;
  */
 public class DBUtility {
 
-	public static final String CONNECTION = "jdbc:sqlite:movie.db";
+	public static final String CONNECTION = "jdbc:sqlite:movies.db";
 	public static final int TIMEOUT = 30;
 	
 	private static final String DRIVER_NAME = "org.sqlite.JDBC";

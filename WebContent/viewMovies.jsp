@@ -12,8 +12,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Movies by Studio Ghibli</title>
-		<meta name="description" content="This is a JSP example that demonstrantes how to build a dynamic website using JSPs">
+		<title>Movies by Studio Ghibli: View Movies</title>
 		<%@ include file="includes/styles.jsp" %>
 	</head>
 	<body>
@@ -29,14 +28,14 @@
 				List<Movie> movies = new ArrayList<>();
 				final String filePath = session.getServletContext().getRealPath("/Assets/movies.xlsx");
 				final File inputFile = new File(filePath);
-				movies = WorkbookUtility.retrievePeopleFromWorkbook(inputFile);
+				movies = WorkbookUtility.retrieveMoviesFromWorkbook(inputFile);
 				
 			
 				final String sortType = request.getParameter("sort");
 				
 				if (sortType != null) {
 					 %>
-					 <p>Did I miss something? Help me out and add it <a href="populate-database.jsp">here</a>.</p>
+					 <p>Did I miss something? Help me out and add it <a href="AddMovie.jsp">here</a>.</p>
 					 <%
 					switch (sortType) {
 					
