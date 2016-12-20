@@ -10,7 +10,6 @@
 	</head>
 	<body>
 	<div class="page">
-			<img src="Assets/studioLogo.png"></img>
 			<%@ include file="includes/navigation.jsp" %>
 			
 			<h1>Populate the Database</h1>

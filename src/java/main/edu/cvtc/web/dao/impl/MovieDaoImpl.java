@@ -25,7 +25,7 @@ public class MovieDaoImpl implements MovieDao {
 
 	private static final String DROP_TABLE_MOVIE = "drop table if exists movie;";
 	private static final String CREATE_TABLE_MOVIE = "create table movie (id integer primary key autoincrement,"
-			+ " director text, length integer, movieTitle text, imdb text);";
+			+ " movieTitle text, director text, length integer, imdb text);";
 	private static final String SELECT_ALL_FROM_MOVIE = "select * from movie;";
 	
 	@Override
@@ -43,9 +43,9 @@ public class MovieDaoImpl implements MovieDao {
 			final List<Movie> people = WorkbookUtility.retrieveMoviesFromWorkbook(inputFile);
 			
 			for (final Movie movie : people) {
-				String insertValues = "insert into movie (director, length, movieTitle, imdb) values ('"
-									+ movie.getDirector() + "', " + movie.getLength() + ", \"" + movie.getMovieTitle()
-									+ "\", \"" + movie.getIMDB() + "\");";
+				String insertValues = "insert into movie (movieTitle, director, length, imdb) values (\""
+									+ movie.getMovieTitle() + "\", \"" + movie.getDirector() + "\", " + movie.getLength()
+									+ ", \"" + movie.getIMDB() + "\");";
 				
 				System.out.println(insertValues);
 				
@@ -75,21 +75,21 @@ public class MovieDaoImpl implements MovieDao {
 			final ResultSet results = statement.executeQuery(SELECT_ALL_FROM_MOVIE);
 			
 			while (results.next()) {
-				final String director = results.getString("director");
-				final String movieTitle = results.getString("movieTitle");
+				final String director = results.getString("movieTitle");
+				final String movieTitle = results.getString("director");
 				final int length = results.getInt("length");
-				final String imbd = results.getString("imbd");
+				final String imdb = results.getString("imdb");
 				
-				final Movie Movie = new Movie(director, movieTitle, length, imbd);
+				final Movie movie = new Movie(movieTitle, director, length, imdb);
 				
-				people.add(Movie);
+				people.add(movie);
 			}
 			
 			results.close();
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new MovieDatabaseException("Error retrieving people from the Database.");
+			throw new MovieDatabaseException("Error retrieving movies from the Database.");
 		} finally {
 			DBUtility.closeConnections(connection, statement);
 		}
@@ -104,13 +104,14 @@ public class MovieDaoImpl implements MovieDao {
 		PreparedStatement preparedStatement = null;
 		try {
 			connection = DBUtility.createConnection();
-			final String insertSQL = "insert into Movie (firstName, lastName, age, favoriteColor) values (?, ?, ?, ?);";
+			final String insertSQL = "insert into Movie (movieTitle, director, length, imdb) values (?, ?, ?, ?);";
 			
 			preparedStatement = connection.prepareStatement(insertSQL);
 			
-			preparedStatement.setString(1, movie.getDirector());
-			preparedStatement.setString(2, movie.getMovieTitle());
+			preparedStatement.setString(1, movie.getMovieTitle());
+			preparedStatement.setString(2, movie.getDirector());
 			preparedStatement.setInt(3, movie.getLength());
+			preparedStatement.setString(4, movie.getIMDB());
 			
 			preparedStatement.setQueryTimeout(DBUtility.TIMEOUT);
 			

@@ -30,9 +30,9 @@ public class AddMovieController extends HttpServlet {
 			final String director = request.getParameter("director");
 			final String movieTitle = request.getParameter("movieTitle");
 			final int length = Integer.parseInt(request.getParameter("length"));
-			final String imbd = request.getParameter("imbd");
+			final String imdb = request.getParameter("imdb");
 			
-			final Movie movie = new Movie(director, movieTitle, length, imbd);
+			final Movie movie = new Movie(director, movieTitle, length, imdb);
 			
 			final MovieDao movieDao = new MovieDaoImpl();
 			movieDao.insertMovie(movie);

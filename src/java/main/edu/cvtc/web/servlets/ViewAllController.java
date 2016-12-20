@@ -37,7 +37,7 @@ public class ViewAllController extends HttpServlet {
 			
 			request.setAttribute("movies", movies);
 			
-			target = "view-all.jsp";
+			target = "viewMovies.jsp";
 			
 		} catch (final MovieSearchException e) {
 			e.printStackTrace();

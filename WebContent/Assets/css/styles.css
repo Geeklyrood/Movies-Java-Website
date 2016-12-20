@@ -44,6 +44,7 @@ li {
 	padding: 6px 18px 5px 18px;
 	border-right: 2px double #000000;
 	border-left: 2px double #000000;
+	margin-top: 5px;
 }
 
 #nav:hover {

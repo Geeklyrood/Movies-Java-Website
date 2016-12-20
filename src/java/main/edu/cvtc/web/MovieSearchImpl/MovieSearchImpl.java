@@ -44,7 +44,7 @@ public class MovieSearchImpl implements MovieSearch {
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new MovieSearchException("The list of people could not be retrieved from the database");
+			throw new MovieSearchException("The list of movies could not be retrieved from the database");
 		}
 	}
 
@@ -73,7 +73,7 @@ public class MovieSearchImpl implements MovieSearch {
 			
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new MovieSearchException("Could not find person(s) by last name.");
+			throw new MovieSearchException("Could not find movie(s) by last name.");
 		}
 	}
 
@@ -85,7 +85,7 @@ public class MovieSearchImpl implements MovieSearch {
 			return Lists.newArrayList(Collections2.filter(movies, new MovieTitlePredicate(movieTitle)));
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new MovieSearchException("Could not find person(s) by favorite color.");
+			throw new MovieSearchException("Could not find movie(s) by favorite color.");
 		}
 	}
 
@@ -97,7 +97,7 @@ public class MovieSearchImpl implements MovieSearch {
 			return Lists.newArrayList(Collections2.filter(movies, new LengthPredicate(length)));
 		} catch (final Exception e) {
 			e.printStackTrace();
-			throw new MovieSearchException("Could not find person(s) by age.");
+			throw new MovieSearchException("Could not find movie(s) by age.");
 		}
 	}
 

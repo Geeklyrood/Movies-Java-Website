@@ -32,7 +32,7 @@ public class Movie {
 	
 	@Override
 	public String toString() {
-		return "Movie [movie=" + movieTitle + ", director=" + director + ", length=" + length  +  ", imdb=" + imdb + "]";
+		return "Movie [movieTitle=" + movieTitle + ", director=" + director + ", length=" + length  +  ", imdb=" + imdb + "]";
 	}
 
 	

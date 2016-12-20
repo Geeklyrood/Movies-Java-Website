@@ -10,11 +10,9 @@
 	<div class="page">
 			<%@ include file="includes/navigation.jsp" %>
 			
-			<h1>Welcome!</h1>
+			<h1>Error!</h1>
 			<div id="boxed">
-				<p>This website is devoted to Studio Ghibli and its many movies. Here you can sort through them based on a variety of stipulations, access the 
-				IMDB page for the movie and much more to come. Click on a sort stipulation in order to start!</p>
-				<p>Click <a href="populate-database.jsp">here</a> to re-populate the database.</p>
+				<p>${error}</p>
 			</div>
 	</div>
 			<%@ include file="/includes/footer.jsp" %>

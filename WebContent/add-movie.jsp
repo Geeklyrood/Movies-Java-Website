@@ -8,10 +8,9 @@
 	</head>
 	<body>
 	<div class="page">
-			<img src="Assets/studioLogo.png"></img>
 			<%@ include file="includes/navigation.jsp" %>
 			
-			<form action="addMovie" method="post">
+			<form action="AddMovie" method="post">
 					<div class="form-group">
 						<label for="director"><strong>Director:</strong></label>
 						<input name="director">
@@ -21,6 +20,9 @@
 						
 						<label for="length"><strong>Length:</strong></label>
 						<input name="length">
+						
+						<label for="imdb"><strong>Link:</strong></label>
+						<input name="imdb">
 						
 						<input type="submit" value="Add Movie">
 						
