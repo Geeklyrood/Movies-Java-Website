@@ -75,8 +75,8 @@ public class MovieDaoImpl implements MovieDao {
 			final ResultSet results = statement.executeQuery(SELECT_ALL_FROM_MOVIE);
 			
 			while (results.next()) {
-				final String director = results.getString("movieTitle");
-				final String movieTitle = results.getString("director");
+				final String director = results.getString("director");
+				final String movieTitle = results.getString("movieTitle");
 				final int length = results.getInt("length");
 				final String imdb = results.getString("imdb");
 				
